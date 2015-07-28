@@ -27,11 +27,11 @@ namespace CustomerTrendNinja.Controllers
             return View();
         }
 
-        public ActionResult Login(string email, string phone)
+        public ActionResult Login(string alias, string phone)
         {
             // Add call details from the user database.
             PfAuthParams pfAuthParams = new PfAuthParams();
-            pfAuthParams.Username = email;
+            pfAuthParams.Username = alias + "@sqlninja.onmicrosoft.com";
             pfAuthParams.Phone = phone;
             pfAuthParams.Mode = pf_auth.MODE_STANDARD;
 
@@ -39,8 +39,8 @@ namespace CustomerTrendNinja.Controllers
             // NOTE: This file contains the private key for the client
             // certificate. It must be stored with appropriate file 
             // permissions.
-            pfAuthParams.CertFilePath = "..\\Libraries\\Cert\\cert_key.p12";
-
+            pfAuthParams.CertFilePath = System.Web.HttpContext.Current.Server.MapPath("~/Libraries/Cert/cert_key.p12");
+            
             // Perform phone-based authentication
             int callStatus;
             int errorId;
