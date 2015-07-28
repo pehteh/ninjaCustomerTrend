@@ -39,7 +39,7 @@ namespace CustomerTrendNinja.Controllers
             // NOTE: This file contains the private key for the client
             // certificate. It must be stored with appropriate file 
             // permissions.
-            pfAuthParams.CertFilePath = "C:\\Users\\pehteh\\Documents\\visual studio 2015\\Projects\\MFA_Demo\\MFA_Demo\\pf\\cert_key.p12";
+            pfAuthParams.CertFilePath = "..\\Libraries\\Cert\\cert_key.p12";
 
             // Perform phone-based authentication
             int callStatus;
