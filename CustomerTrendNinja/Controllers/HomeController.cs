@@ -48,11 +48,13 @@ namespace CustomerTrendNinja.Controllers
             if (pf_auth.pf_authenticate(pfAuthParams, out callStatus, out errorId))
             {
                 System.Diagnostics.Debug.WriteLine("Multi-Factor Authentication succeeded.");
+                ViewBag.Message = "";
                 return View("CustomerTrendMain");
             }
             else
             {
                 System.Diagnostics.Debug.WriteLine("Multi-Factor Authentication failed.");
+                ViewBag.Message = "Multi-Factor Authentication failed.";
                 return View("Index");
             }
         }
